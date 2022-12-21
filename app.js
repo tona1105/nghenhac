@@ -311,11 +311,23 @@ const app = {
             }
         })
     },
+    
+    //ScrollToView
+     scrollActiveSong: function() {
+        setTimeout(() => {
+            $('.song.active').scrollIntoView({
+                behavior: 'smooth',
+                block: 'center'
+            })
+        },300)
+    },
+
 
     loadCurrentSong() {
         heading.textContent = this.currentSong.name
         cdThumb.style.backgroundImage = `url('${this.currentSong.img}')`
         audio.src = this.currentSong.path
+        this.scrollActiveSong()
     },
 
    
