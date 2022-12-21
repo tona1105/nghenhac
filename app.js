@@ -1,3 +1,4 @@
+var songApi = "http://localhost:3000/songs"
 const $ = document.querySelector.bind(document)
 const $$ = document.querySelectorAll.bind(document)
 const cd = $('.cd')
@@ -13,10 +14,59 @@ const randomBtn = $('.btn-random')
 const loopBtn = $('.btn-repeat')
 const volumeIcon = $('.volume > i')
 const currentVolume = $('.volume-range')
+const playlist = $('.playlist') 
 const app = {
     currentIndex: 0,
     isPlaying: false,
     songs: [
+        {
+            name: 'Arcade',
+            singer: 'Jake',
+            path: './assets/music/arcade.mp3',
+            img: 'https://i.picsum.photos/id/493/536/354.jpg?hmac=GPhu1BxEM1_H9TxwMwgHeAiJhhcyCsUPuAJWdc0xluw'
+        },
+        {
+            name: 'Dancin',
+            singer: 'Jake',
+            path: './assets/music/dacin.mp3',
+            img: 'https://i.picsum.photos/id/277/536/354.jpg?hmac=xH1eLTnydQBJjBRiTDaKbklGUBnHcO63i5jsC6aqoL8'
+        },
+        {
+            name: 'Memories',
+            singer: 'Marron 5',
+            path: './assets/music/memories.mp3',
+            img: 'https://i.picsum.photos/id/802/536/354.jpg?hmac=NIrYdwaO2OhkZe5OvcM_gwLFnEjNw7dHTbRJ_s8lGHw'
+        },
+        {
+            name: 'Night Chance',
+            singer: 'One Direction',
+            path: './assets/music/nightchance.mp3',
+            img: 'https://i.picsum.photos/id/334/536/354.jpg?hmac=Fqr45rgKed7wdrBcTfry45TVJTcjO1smvFBhSRsaeqY'
+        },
+        {
+            name: 'Toxic',
+            singer: 'One Direction',
+            path: './assets/music/Toxic.mp3',
+            img: 'https://i.picsum.photos/id/440/536/354.jpg?hmac=6i7nf3sDCo7ZOJiZUEuSgzeksMRFxMb3n46je6U-RCM'
+        },
+        {
+            name: 'Waiting for love',
+            singer: 'Avicii',
+            path: './assets/music/waitingforlove.mp3',
+            img: 'https://i.picsum.photos/id/512/536/354.jpg?hmac=B1ChCYwros8uQq7yiGCxjYXB-6pIuzoYaL10sWf01H4'
+        },
+        {
+            name: 'Wake me up',
+            singer: 'Avicii',
+            path: './assets/music/wakemeup.mp3',
+            img: 'https://i.picsum.photos/id/669/536/354.jpg?hmac=MwxCihHFk-YctYB8BovPqrGFY6EuCSFrWBC3jvgxyiw'
+        },
+        {
+            name: 'See you again',
+            singer: 'Avicii',
+            path: './assets/music/seeyouagain.mp3',
+            img: 'https://i.picsum.photos/id/598/536/354.jpg?hmac=82Os7u6EtTg423GKsDw_kHY2fbSzzi9Y_RnCxQ8wmzY'
+        },
         {
             name: 'Golden Hour',
             singer: 'Jake',
@@ -60,7 +110,6 @@ const app = {
             img: 'https://i.picsum.photos/id/294/536/354.jpg?hmac=1trH5rfCyXlR6QVlX__i7xva9e8Oo5VKvhoZ1L7B4S8'
         },
     ],
-
     render: function() {
         const html = this.songs.map((song,index) => {
             return `
@@ -74,11 +123,13 @@ const app = {
                 <div class="option">
                     <i class="fas fa-ellipsis-h"></i>
                 </div>  
-            </div> 
+            </div > 
         `
         })
         $('.playlist').innerHTML = html.join('')
     },
+   
+
     //chuyen bai 
     nextSong() {
        this.currentIndex++
@@ -143,6 +194,17 @@ const app = {
             _this.isPlaying = true
             cdThumb.classList.add('rotating')
             player.classList.add('playing')
+        }
+        //Khi song duoc chon de play
+        playlist.onclick = function(e){
+            if(e.target.closest('.song:not(.active)') && !e.target.closest('.option')) 
+            {
+                _this.currentIndex = e.pointerId-1
+                _this.loadCurrentSong()
+                audio.play()
+               
+            }
+            _this.render()
         }
         //Khi song bi pause
         audio.onpause = function() {
@@ -256,6 +318,9 @@ const app = {
    
 
     start: function(){
+        //Render play list
+        this.render()
+        
         //Dinh nghia cac thuoc tinh cho Object
         this.defineProperties()
         
@@ -265,8 +330,6 @@ const app = {
         //Tai thong tin bai hat vao UI khi chay ung dung
         this.loadCurrentSong()
 
-        //Render play list
-        this.render()
         
     }
 }
