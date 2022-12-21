@@ -197,15 +197,18 @@ const app = {
         }
         //Khi song duoc chon de play
         playlist.onclick = function(e){
-            if(e.target.closest('.song:not(.active)') && !e.target.closest('.option')) 
+            const songNode = e.target.closest('.song:not(.active)') 
+            if(songNode && !e.target.closest('.option')) 
             {
-                _this.currentIndex = e.pointerId-1
+                
+                _this.currentIndex = songNode.getAttribute('data-id')
                 _this.loadCurrentSong()
                 audio.play()
                
             }
             _this.render()
         }
+      
         //Khi song bi pause
         audio.onpause = function() {
             _this.isPlaying = false
