@@ -113,7 +113,7 @@ const app = {
     render: function() {
         const html = this.songs.map((song,index) => {
             return `
-            <div class="song ${index === this.currentIndex ? 'active' : ''}">
+            <div class="song ${index === this.currentIndex ? 'active' : ''}" data-id="${index}">
                 <div class="thumb" style="background-image: url('${song.img}')">
                 </div>
                 <div class="body">
@@ -196,6 +196,7 @@ const app = {
             player.classList.add('playing')
         }
         //Khi song duoc chon de play
+       
         playlist.onclick = function(e){
             const songNode = e.target.closest('.song:not(.active)') 
             if(songNode && !e.target.closest('.option')) 
@@ -208,7 +209,6 @@ const app = {
             }
             _this.render()
         }
-      
         //Khi song bi pause
         audio.onpause = function() {
             _this.isPlaying = false
