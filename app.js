@@ -23,91 +23,91 @@ const app = {
             name: 'Arcade',
             singer: 'Jake',
             path: './assets/music/arcade.mp3',
-            img: 'https://i.picsum.photos/id/493/536/354.jpg?hmac=GPhu1BxEM1_H9TxwMwgHeAiJhhcyCsUPuAJWdc0xluw'
+            img: './assets/img/ardace.jpg'
         },
         {
             name: 'Dancin',
             singer: 'Jake',
             path: './assets/music/dacin.mp3',
-            img: 'https://i.picsum.photos/id/277/536/354.jpg?hmac=xH1eLTnydQBJjBRiTDaKbklGUBnHcO63i5jsC6aqoL8'
+            img: './assets/img/dancin.jpg'
         },
         {
             name: 'Memories',
             singer: 'Marron 5',
             path: './assets/music/memories.mp3',
-            img: 'https://i.picsum.photos/id/802/536/354.jpg?hmac=NIrYdwaO2OhkZe5OvcM_gwLFnEjNw7dHTbRJ_s8lGHw'
+            img: './assets/img/memories.jpg'
         },
         {
             name: 'Night Chance',
             singer: 'One Direction',
             path: './assets/music/nightchance.mp3',
-            img: 'https://i.picsum.photos/id/334/536/354.jpg?hmac=Fqr45rgKed7wdrBcTfry45TVJTcjO1smvFBhSRsaeqY'
+            img: './assets/img/nightchance.jpg'
         },
         {
             name: 'Toxic',
             singer: 'One Direction',
             path: './assets/music/Toxic.mp3',
-            img: 'https://i.picsum.photos/id/440/536/354.jpg?hmac=6i7nf3sDCo7ZOJiZUEuSgzeksMRFxMb3n46je6U-RCM'
+            img: './assets/img/toxic.jpg'
         },
         {
             name: 'Waiting for love',
             singer: 'Avicii',
             path: './assets/music/waitingforlove.mp3',
-            img: 'https://i.picsum.photos/id/512/536/354.jpg?hmac=B1ChCYwros8uQq7yiGCxjYXB-6pIuzoYaL10sWf01H4'
+            img: './assets/img/waitingforlove.jpg'
         },
         {
             name: 'Wake me up',
             singer: 'Avicii',
             path: './assets/music/wakemeup.mp3',
-            img: 'https://i.picsum.photos/id/669/536/354.jpg?hmac=MwxCihHFk-YctYB8BovPqrGFY6EuCSFrWBC3jvgxyiw'
+            img: './assets/img/wakemeup.jpg'
         },
         {
             name: 'See you again',
             singer: 'Avicii',
             path: './assets/music/seeyouagain.mp3',
-            img: 'https://i.picsum.photos/id/598/536/354.jpg?hmac=82Os7u6EtTg423GKsDw_kHY2fbSzzi9Y_RnCxQ8wmzY'
+            img: './assets/img/seeyouagain.jpg'
         },
         {
             name: 'Golden Hour',
             singer: 'Jake',
             path: './assets/music/goldenhour.mp3',
-            img: 'https://i.picsum.photos/id/263/536/354.jpg?hmac=Tn8MK-aH0rIHy83oIIGbmrSSJcJE2PI2kZBy8oNFO6s'
+            img: './assets/img/goldenhour.jpg'
         },
         {
             name: 'Another Love',
             singer: 'BA',
             path: './assets/music/anotherlove.mp3',
-            img: 'https://i.picsum.photos/id/243/536/354.jpg?hmac=LfqhpnBszg-pS8BQHemVFexSLyoiFYP8Pw14oAiPpE4'
+            img: './assets/img/anotherlove.jpg'
         },
         {
             name: 'Death Bed',
             singer: 'Abc',
             path: './assets/music/deathbed.mp3',
-            img: 'https://i.picsum.photos/id/740/536/354.jpg?hmac=FEZtXn-RDrVWDOPFT3ihLYZmxa-x-ENiGOY1JGArWGQ'
+            img: './assets/img/deathbed.jpg'
         },
         {
             name: 'Glim of Us',
             singer: 'Juji',
             path: './assets/music/glimpseofus.mp3',
-            img: 'https://i.picsum.photos/id/605/536/354.jpg?hmac=UEikA1VtUKhG5RZNv-Bokpe3xjPIdzzW9akGBUFmB5k'
+            img: './assets/img/glimofus.jpg'
         },
         {
             name: 'Comethru',
             singer: 'JVK',
             path: './assets/music/comethru.mp3',
-            img: 'https://i.picsum.photos/id/816/536/354.jpg?hmac=5mIpQ67g4pJlWVrgL3whbmlV3qzRBLmSu3rOl6UK2pw'
+            img: './assets/img/comethru.jpg'
         },
         {
             name: 'This is what falling in love',
             singer: 'Jake',
             path: './assets/music/thisiswhatfallinginlovefeelslike.mp3',
-            img: 'https://i.picsum.photos/id/218/536/354.jpg?hmac=yVh3J9narBFhF0sDwgdFrpr_uDpVeMN4AhrkMuvq1Vs'
+            img: './assets/img/thisis.jpg'
         },
         {
             name: '2002',
             singer: 'Annie',
             path: './assets/music/2002.mp3',
-            img: 'https://i.picsum.photos/id/294/536/354.jpg?hmac=1trH5rfCyXlR6QVlX__i7xva9e8Oo5VKvhoZ1L7B4S8'
+            img: './assets/img/2002.jpg'
         },
     ],
     render: function() {
@@ -275,6 +275,7 @@ const app = {
             else {
                 _this.nextSong()
             }
+            _this.render()
         } , false)
 
         //Xu ly khi mute 
